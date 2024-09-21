@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 const MovieReviews = ({ movieId }) => {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null);
+  const { movieId } = useOutletContext();
 
   useEffect(() => {
     const fetchReviews = async () => {

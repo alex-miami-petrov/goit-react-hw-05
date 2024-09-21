@@ -24,7 +24,7 @@ const MovieDetailsPage = () => {
         </ul>
       </div>
       <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet />
+        <Outlet context={{ movieId }} />
       </Suspense>
     </>
   );

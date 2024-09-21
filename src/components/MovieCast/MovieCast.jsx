@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 const MovieCast = ({ movieId }) => {
   const [cast, setCast] = useState([]);
   const [error, setError] = useState(null);
+  const { movieId } = useOutletContext();
 
   useEffect(() => {
     const fetchCast = async () => {
