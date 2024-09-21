@@ -10,15 +10,15 @@ const MoviesPage = () => {
       `https://api.themoviedb.org/3/search/movie?api_key=57014c96b87c08f332a92718923bcab2&query=${query}`
     );
     const data = await response.json();
-    setMovies(data.results)
+    setMovies(data.results);
   };
   return (
     <div>
       <h1>Пошук фільмів</h1>
       <input type="text" onChange={(e) => handleSearch(e.target.value)} />
       <MovieList movies={movies} />
-    </div>;
-  ) 
+    </div>
+  );
 };
 
 export default MoviesPage;
