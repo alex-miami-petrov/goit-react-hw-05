@@ -1,0 +1,128 @@
+#root {
+  margin: 0; /* Вирівнювання без додаткових відступів */
+  padding: 0; /* Вирівнювання без додаткових відступів */
+  width: 100vw; /* Займає всю ширину viewport */
+  box-sizing: border-box; /* Включення padding у ширину */
+}
+
+header {
+  background-color: blue;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+/* Стилі для form */
+form {
+  display: flex;
+  align-items: center;
+}
+
+/* Стилі для input */
+input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  width: 400px;
+}
+
+/* Стилі для button */
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Стилі для ul */
+ul {
+  list-style-type: none;
+}
+
+.loader-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+
+  background-color: yellow;
+  cursor: pointer;
+  transition: border-color color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+  color: white;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.load-more-btn {
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+}
+
+.load-more-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transform: background-color color linear;
+}
+
+.load-more-btn:hover,
+.load-more-btn:focus {
+  background-color: yellow;
+  color: black;
+}
+
+.load-more-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
