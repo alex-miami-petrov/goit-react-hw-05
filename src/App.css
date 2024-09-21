@@ -1,8 +1,8 @@
 #root {
-  margin: 0; /* Вирівнювання без додаткових відступів */
-  padding: 0; /* Вирівнювання без додаткових відступів */
-  width: 100vw; /* Займає всю ширину viewport */
-  box-sizing: border-box; /* Включення padding у ширину */
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 header {
@@ -18,13 +18,11 @@ header {
   justify-content: center;
 }
 
-/* Стилі для form */
 form {
   display: flex;
   align-items: center;
 }
 
-/* Стилі для input */
 input[type="text"] {
   padding: 8px;
   font-size: 16px;
