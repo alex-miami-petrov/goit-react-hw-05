@@ -7,6 +7,18 @@ const api = axios.create({
   baseURL: BASE_URL,
 });
 
+export const fetchMoviesByQuery = async (query) => {
+  try {
+    const response = await api.get(
+      `/search/movie?api_key=${API_KEY}&query=${query}`
+    );
+    return response.data.results;
+  } catch (error) {
+    console.error("Failed to fetch movies by query", error);
+    throw error;
+  }
+};
+
 export const fetchTrendingMovies = async () => {
   try {
     const response = await api.get(`/trending/movie/day?api_key=${API_KEY}`);
@@ -49,11 +61,4 @@ export const fetchMovieCast = async (movieId) => {
     console.error(`Failed to fetch cast for movie ID ${movieId}`, error);
     throw error;
   }
-
-  export const fetchMoviesByQuery = async (query) => {
-    const response = await api.get(
-      `/search/movie?api_key=${API_KEY}&query=${query}`
-    );
-    return response.data.results;
-  };
 };

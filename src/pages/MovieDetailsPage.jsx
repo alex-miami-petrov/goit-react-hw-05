@@ -9,7 +9,7 @@ import {
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
-  const goBackLink = location.state ?? "/";
+  const goBackLink = location.state ?? "/movies";
   const [movieDetails, setMovieDetails] = useState(null);
   const [error, setError] = useState(null);
 

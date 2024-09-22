@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import MovieList from "../components/MovieList/MovieList";
 import { useSearchParams } from "react-router-dom";
+import { fetchMoviesByQuery } from "../Api/Api";
 
-const MoviesPage = () => {
+function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
@@ -44,6 +45,6 @@ const MoviesPage = () => {
       <MovieList movies={movies} />
     </div>
   );
-};
+}
 
 export default MoviesPage;
