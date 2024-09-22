@@ -8,7 +8,7 @@ import { fetchMoviesByQuery } from "../Api/Api";
 function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = searchParams.get("query") || "";
+  const query = searchParams.get("query") || "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
