@@ -19,13 +19,14 @@ const MoviesPage = () => {
       if (!query) return;
       try {
         const moviesData = await fetchMoviesByQuery(query);
-        setSearchParams(moviesData);
+        setMovies(moviesData);
       }
       catch (error) {
         console.error("Failed to fetch the movies", error)
       }
-      fetchMovies()
+      
     }
+    fetchMovies()
   }, [query]);
 
   return (
@@ -33,7 +34,7 @@ const MoviesPage = () => {
       
       <form onSubmit={handleSubmit}>
         <label htmlFor="movie-search">
-          <input type="text" id="#movie-search" value={query} onChange={(e) => setSearchParams(query: e.target.value)} />
+          <input type="text" id="movie-search" value={query} onChange={(e) => setSearchParams(query: e.target.value)} />
         </label>
 <button type="submit">Search</button>
       </form>
