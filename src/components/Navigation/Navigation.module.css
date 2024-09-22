@@ -13,3 +13,10 @@
 
   align-items: center;
 }
+
+.navLink {
+  color: black;
+  &:hover {
+    color: #535bf2;
+  }
+}

@@ -6,6 +6,7 @@ import {
   fetchMovieReviews,
 } from "../Api/Api";
 import s from "./MovieDetailsPage.module.css";
+import { FaArrowLeft } from "react-icons/fa";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -35,6 +36,7 @@ const MovieDetailsPage = () => {
       {movieDetails && (
         <div>
           <Link to={goBackLink} className={s.backLink}>
+            <FaArrowLeft />
             Go Back
           </Link>
           <div className={s.detailsWrap}>

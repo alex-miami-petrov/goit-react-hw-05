@@ -5,8 +5,12 @@ import s from "./Navigation.module.css";
 const Navigation = () => {
   return (
     <nav className={s.navList}>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/movies">Movies</NavLink>
+      <NavLink to="/" className={s.navLink}>
+        Home
+      </NavLink>
+      <NavLink to="/movies" className={s.navLink}>
+        Movies
+      </NavLink>
     </nav>
   );
 };
