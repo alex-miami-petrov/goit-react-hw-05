@@ -49,4 +49,11 @@ export const fetchMovieCast = async (movieId) => {
     console.error(`Failed to fetch cast for movie ID ${movieId}`, error);
     throw error;
   }
+
+  export const fetchMoviesByQuery = async (query) => {
+    const response = await api.get(
+      `/search/movie?api_key=${API_KEY}&query=${query}`
+    );
+    return response.data.results;
+  };
 };

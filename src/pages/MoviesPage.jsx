@@ -2,20 +2,42 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import MovieList from "../components/MovieList/MovieList";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  const handleSearch = async (query) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=57014c96b87c08f332a92718923bcab2&query=${query}`
-    );
-    const data = await response.json();
-    setMovies(data.results);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query") || "";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSearchParams({ query });
   };
+
+  const useEffect(() => {
+    const fetchMovies = async () => {
+      if (!query) return;
+      try {
+        const moviesData = await fetchMoviesByQuery(query);
+        setSearchParams(moviesData);
+      }
+      catch (error) {
+        console.error("Failed to fetch the movies", error)
+      }
+      fetchMovies()
+    }
+  }, [query]);
+
   return (
     <div>
       <h1>Пошук фільмів</h1>
-      <input type="text" onChange={(e) => handleSearch(e.target.value)} />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="movie-search">
+          <input type="text" value={query} onChange={(e) => handleSubmit(e.target.value)} />
+        </label>
+
+      </form>
+      
       <MovieList movies={movies} />
     </div>
   );
