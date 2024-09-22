@@ -48,9 +48,7 @@ const MovieDetailsPage = () => {
               <li>
                 <h1>{movieDetails.title}</h1>
               </li>
-              <li>
-                User Score: {(movieDetails.vote_average * 10).toFixed(2)}%
-              </li>
+              <li>User Score: {(movieDetails.vote_average * 10).toFixed()}%</li>
               <li>
                 <h2>Overview:</h2> {movieDetails.overview}
               </li>

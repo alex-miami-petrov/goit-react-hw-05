@@ -12,7 +12,7 @@ function MoviesPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchParams({ query });
+    setSearchParams({ query: e.target.inputQuery.value.trim().toLowerCase() });
   };
 
   useEffect(() => {
@@ -34,9 +34,10 @@ function MoviesPage() {
         <label htmlFor="movie-search">
           <input
             type="text"
+            name="inputQuery"
             id="movie-search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            defaultValue={query}
+            // onChange={(e) => setQuery(e.target.value)}
           />
         </label>
         <button type="submit">Search</button>
