@@ -14,7 +14,7 @@ const MoviesPage = () => {
     setSearchParams({ query });
   };
 
-  const useEffect(() => {
+  useEffect(() => {
     const fetchMovies = async () => {
       if (!query) return;
       try {
@@ -30,12 +30,12 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <h1>Пошук фільмів</h1>
+      
       <form onSubmit={handleSubmit}>
         <label htmlFor="movie-search">
-          <input type="text" value={query} onChange={(e) => handleSubmit(e.target.value)} />
+          <input type="text" id="#movie-search" value={query} onChange={(e) => setSearchParams(query: e.target.value)} />
         </label>
-
+<button type="submit">Search</button>
       </form>
       
       <MovieList movies={movies} />
