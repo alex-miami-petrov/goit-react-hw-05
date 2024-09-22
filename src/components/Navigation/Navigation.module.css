@@ -1,0 +1,15 @@
+.navList {
+  display: flex;
+  gap: 10px;
+  box-sizing: border-box;
+
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  border: 1px solid transparent;
+  outline: none;
+  width: 100vw;
+  padding-left: 10px;
+  height: 40px;
+
+  align-items: center;
+}

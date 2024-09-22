@@ -1,15 +1,17 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState, Suspense, useRef } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import {
   fetchMovieDetails,
   fetchMovieCast,
   fetchMovieReviews,
 } from "../Api/Api";
+import s from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const location = useLocation();
-  const goBackLink = location.state ?? "/movies";
+  const stateRef = useRef(location.state);
+  const goBackLink = stateRef.current ?? "/movies";
   const [movieDetails, setMovieDetails] = useState(null);
   const [error, setError] = useState(null);
 
@@ -32,20 +34,33 @@ const MovieDetailsPage = () => {
     <>
       {movieDetails && (
         <div>
-          <Link to={goBackLink}>Go Back</Link>
+          <Link to={goBackLink} className={s.backLink}>
+            Go Back
+          </Link>
+          <div className={s.detailsWrap}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+              alt={movieDetails.title}
+            />
+            <ul className={s.detailsList}>
+              <li>
+                <h1>{movieDetails.title}</h1>
+              </li>
+              <li>
+                User Score: {(movieDetails.vote_average * 10).toFixed(2)}%
+              </li>
+              <li>
+                <h2>Overview:</h2> {movieDetails.overview}
+              </li>
+              <li>
+                <h2>Genres:</h2>{" "}
+                {movieDetails.genres.map((genre) => genre.name).join(", ")}
+              </li>
+            </ul>
+          </div>
 
-          <h1>{movieDetails.title}</h1>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-            alt={movieDetails.title}
-          />
-          <p>User Score: {(movieDetails.vote_average * 10).toFixed(2)}%</p>
-          <p>Overview: {movieDetails.overview}</p>
-          <p>
-            Genres: {movieDetails.genres.map((genre) => genre.name).join(", ")}
-          </p>
           <h2>Additional information</h2>
-          <ul>
+          <ul className={s.infoList}>
             <li>
               <Link to="cast">Cast</Link>
             </li>

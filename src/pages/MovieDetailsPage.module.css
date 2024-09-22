@@ -1,0 +1,25 @@
+.detailsList {
+  display: flex;
+  flex-direction: column;
+
+  list-style-type: none;
+  gap: 20px;
+}
+
+.detailsWrap {
+  display: flex;
+  border-bottom: 1px solid grey;
+  padding-bottom: 8px;
+  img {
+    width: 18%;
+  }
+}
+
+.backLink {
+  margin-left: 10px;
+}
+
+.infoList {
+  border-bottom: 1px solid grey;
+  padding-bottom: 16px;
+}
