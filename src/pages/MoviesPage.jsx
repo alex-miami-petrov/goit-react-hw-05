@@ -8,7 +8,7 @@ import { fetchMoviesByQuery } from "../Api/Api";
 function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("query") || "";
+  const [query, setQuery] = searchParams.get("query") || "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ function MoviesPage() {
             type="text"
             id="movie-search"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}}
+            onChange={(e) => setQuery(e.target.value)}
           />
         </label>
         <button type="submit">Search</button>
