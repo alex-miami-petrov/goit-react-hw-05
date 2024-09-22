@@ -36,7 +36,7 @@ function MoviesPage() {
             type="text"
             id="movie-search"
             value={query}
-            onChange={(e) => setSearchParams({ query: e.target.value })}
+            onChange={(e) => setQuery(e.target.value)}}
           />
         </label>
         <button type="submit">Search</button>
